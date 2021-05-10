@@ -1,0 +1,252 @@
+void Recipe::selectRecipe(Recipe& recipe)
+{
+	string line;
+	stringstream ss;
+	vector<string> recipeNames;
+	char selection;
+
+	while(getline(infile, line))
+	{
+		if(line.rfind("<name>") > -1)
+		{
+			recipeNames.push_back(line.substring(line.find_last_of(">")));
+		}
+	}
+
+	cout << "Select Recipe: " << endl;
+	for (int i = 0; i < recipeNames.size(); i++)
+	{
+		cout << i << ": " << "\t" << recipeNames[i] << endl;
+	}
+
+	/////////////////////////////////////////////////////////////////////////
+
+
+}
+
+void loadRecipe(Recipe& recipe, string name)
+{
+	fstream inFile;
+	string line;
+	int index;
+	int temp;
+	string ingName;
+	int ingAmount;
+	string ingMeasure;
+	string ingType;
+
+	// Looks over file for <ing> tags that appear after string name
+	inFile.open("recipeCards.txt");
+	while (inFile)
+	{
+		getline(inFile, line);
+		if (line == "<name>" + name)	// Finds name of recipe
+		{
+			while (line != "</ing>")	// While not at end of ingredients list
+			{
+				getline(inFile,line);
+				// Seperate line into ingredient variable
+				// for Ingredients vector
+				// Name
+				index = line.rfind(0, ',');
+				ingName = line.substr(0, index);
+				// Amount
+				temp = index;
+				index = line.rfind(temp, ',');
+				ingAmount = line.substr(temp, index);
+				// Measurement
+				temp = index;
+				index = line.substr(temp, ',');
+				ingMeasure = line.substr(temp, index);
+				// Type
+				//temp = index;
+				//index = line.substr(temp, ',');
+				ingType = line.substr(index);
+
+				Ingredients.push_back(ingredients(ingName, ingAmount,
+												ingMeasure, ingType));
+			
+			}
+		}
+		break;
+	}
+	break;
+}
+
+//////////////////////////////////////////////////////////////////
+void Recipe::loadRecipe(Recipe& recipe, string name)
+{
+	fstream inFile;
+	string line;
+	int index;
+	int temp;
+	string ingName;
+	string ingAmount;
+	int convIngAmount;
+	string ingMeasure;
+	string ingType;
+	int nameIndex;
+
+	// Looks over file for tags
+	inFile.open("recipeCards.txt");
+
+	while (inFile)
+	{
+		// Start under <name>UserInput**********************
+		// Loop until <name>Name is found
+		getline(inFile, line);
+		nameIndex = line.find("<name>" + name);
+		cout << "<name>" + name << endl;
+		if (nameIndex > -1)
+		{
+			getline(inFile, line);
+			index = line.find("<ing>");
+			if (index > -1)
+			{
+				// Seperate line into ingredient variables
+				// for Ingredients vector
+				// Name
+				index = line.find(',');
+				ingName = line.substr(5, index - 5);
+				// Amount
+				temp = index;
+				index = line.find(",", temp + 1);
+				ingAmount = line.substr(temp + 1, index - temp - 1);
+				// Measurement
+				temp = index;
+				index = line.find(",", temp + 1);
+				ingMeasure = line.substr(temp + 1, index - temp - 1);
+				// Type
+				ingType = line.substr(index + 1);
+
+				// Convert ingAmount to an integer
+				convIngAmount = stoi(ingAmount);
+
+				recipe.Ingredients.push_back(ingredients(ingName, convIngAmount,
+					ingMeasure, ingType));
+			}
+		// End at </Recipe>*********************************
+		}
+	}
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+void Recipe::loadRecipe(Recipe& recipe, string name)
+{
+	fstream inFile;
+	string line;
+	int index;
+	int temp;
+	string ingName;
+	string ingAmount;
+	int convIngAmount;
+	string ingMeasure;
+	string ingType;
+	int nameIndex;
+
+	// Looks over file for <ing> tags
+	inFile.open("recipeCards.txt");
+	while (inFile)
+	{
+		// Start under <name>UserInput**********************
+		// Loop until <name>Name is found
+		getline(inFile, line);
+		nameIndex = line.find("<name>" + name);
+		// cout << "<name>" + name << endl;
+		while (nameIndex > -1 && line != "</Recipe>")	// getline is at <name>Name
+		{
+			getline(inFile, line);
+			index = line.find("<ing>");
+			if (index > -1)
+			{
+				// Seperate line into ingredient variables
+				// for Ingredients vector
+				// Name
+				index = line.find(',');
+				ingName = line.substr(5, index - 5);
+				// Amount
+				temp = index;
+				index = line.find(",", temp + 1);
+				ingAmount = line.substr(temp + 1, index - temp - 1);
+				// Measurement
+				temp = index;
+				index = line.find(",", temp + 1);
+				ingMeasure = line.substr(temp + 1, index - temp - 1);
+				// Type
+				ingType = line.substr(index + 1);
+
+				// Convert ingAmount to an integer
+				convIngAmount = stoi(ingAmount);
+
+				recipe.Ingredients.push_back(ingredients(ingName, convIngAmount,
+					ingMeasure, ingType));
+			}
+		}
+		// End at </Recipe>*********************************
+	}
+}
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+void Recipe::selectRecipe(Recipe& recipe)
+{
+	fstream inFile;
+	string line;
+	vector<string> recipeNames;
+	char selection;
+	int index;
+	int select;
+
+	// Looks over file for <name> tags
+	inFile.open("recipeCards.txt");	// recipeCards.txt holds all recipes
+	while (inFile)	// File opened successfully
+	{
+		getline(inFile, line);
+		index = line.rfind("<name>"); // Looks for all <name> tags
+
+		if (index > -1)	// <name> tag is found
+		{
+			recipeNames.push_back(line.substr(line.find_last_of(">") + 1));	// Name is added to vector
+			line.clear();	// Clear buffer
+		}
+	}
+
+	inFile.close();	// Close file
+
+	// Prompts user to select a recipe
+	cout << "\nSelect Recipe: " << endl;
+	for (int i = 0; i < recipeNames.size(); i++)
+	{
+		cout << i << ": " << "\t" << recipeNames[i] << endl;
+	}
+	cout << "Selection: ";
+	cin >> selection;
+
+	// Set up so ingredients and directions are loaded into Recipe& recipe
+	// fix to accomodate user input***************************************************************
+	do
+	{
+		switch (toupper(selection))
+		{
+		case '0':
+			select = 0; // 0
+			recipe.loadRecipe(recipe, recipeNames[select]); // Change "0" to user input
+			recipe.loadPrep(recipe);
+			recipe.loadExec(recipe);
+			//recipe.printIngredients();
+			selection = 'Q';
+			break;
+		default:
+			cout << "Invalid. Try again." << endl;
+			break;
+		}
+
+		if (isdigit(slection))
+		{
+			recipe.loadRecipe(recipe, recipeNames[selection]);
+			recipe.loadPrep(recipe, recipeNames[selection]);
+			recipe.loadExec(recipe, recipeNames[selection]);
+		}
+
+	} while (toupper(selection) != 'Q');
+}

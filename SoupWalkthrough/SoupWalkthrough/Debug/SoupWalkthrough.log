@@ -1,0 +1,6 @@
+﻿  Recipe.cpp
+c:\users\fgtar\source\repos\2021c++\practice\soupwalkthrough\soupwalkthrough\recipe.cpp(92): warning C4018: '<': signed/unsigned mismatch
+c:\users\fgtar\source\repos\2021c++\practice\soupwalkthrough\soupwalkthrough\recipe.cpp(105): warning C4018: '>=': signed/unsigned mismatch
+c:\users\fgtar\source\repos\2021c++\practice\soupwalkthrough\soupwalkthrough\recipe.cpp(165): warning C4018: '<': signed/unsigned mismatch
+c:\users\fgtar\source\repos\2021c++\practice\soupwalkthrough\soupwalkthrough\recipe.cpp(176): warning C4018: '<': signed/unsigned mismatch
+  SoupWalkthrough.vcxproj -> C:\Users\fgtar\source\repos\2021C++\Practice\SoupWalkthrough\Debug\SoupWalkthrough.exe
