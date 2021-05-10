@@ -104,10 +104,10 @@ void Recipe::shoppingList(Recipe& recipe)
 		filename = recipe.name + "ShoppingList.txt";
 		infile.open(filename, ios::out);
 		if (infile) // File opened successfully
-		{ 
+		{
 			cout << "\nFile created successfully" << endl;
-			break; 
-		} 
+			break;
+		}
 		else
 		{
 			cout << "Some Error" << endl;
@@ -118,11 +118,11 @@ void Recipe::shoppingList(Recipe& recipe)
 	infile << "-----" << endl;
 	for (ingredients ingredient : recipe.Ingredients)
 	{
-		infile << setw(25) << left << ingredient.name << right 
-			<< ingredient.amount << " " 
+		infile << setw(25) << left << ingredient.name << right
+			<< ingredient.amount << " "
 			<< ingredient.measurement << endl;
 	}
-	
+
 
 	infile.close();
 
@@ -134,7 +134,14 @@ void Recipe::prep(Recipe& recipe)
 	cout << endl << "Prep-------------------------" << endl;
 	for (int i = 0; i < recipe.Prep.size(); i++)
 	{
-		cout << recipe.Prep[i] << endl;
+		if (recipe.Prep[i] == "<listVeg>")
+		{
+			recipe.listVeg(recipe);
+		}
+		else
+		{
+			cout << recipe.Prep[i] << endl;
+		}
 	}
 	system("pause");
 }
@@ -145,7 +152,18 @@ void Recipe::execute(Recipe& recipe)
 	cout << endl << "Execute----------------------" << endl;
 	for (int i = 0; i < recipe.Execute.size(); i++)
 	{
-		cout << recipe.Execute[i] << endl;
+		if (recipe.Execute[i] == "<listTopping>")
+		{
+			recipe.listTopping(recipe);
+		}
+		else if (recipe.Execute[i] == "<listStock>")
+		{
+			recipe.listStock(recipe);
+		}
+		else
+		{
+			cout << recipe.Execute[i] << endl;
+		}
 	}
 	system("pause");
 }
@@ -203,7 +221,7 @@ void Recipe::loadPrep(Recipe& recipe)
 	string line;
 	int index;
 	int nameIndex;
-	
+
 	inFile.open("recipeCards.txt");
 	while (inFile)
 	{
@@ -248,6 +266,40 @@ void Recipe::loadExec(Recipe& recipe)
 				// Add line to execute vector
 				recipe.Execute.push_back(line.substr(6));
 			}
+		}
+	}
+}
+
+void Recipe::listVeg(Recipe& recipe)
+{
+	for (int i = 0; i < recipe.Ingredients.size(); i++)
+	{
+		if (recipe.Ingredients[i].type == "Veg")
+		{
+			cout << recipe.Ingredients[i].name << endl;
+		}
+	}
+}
+
+void Recipe::listTopping(Recipe& recipe)
+{
+	for (int i = 0; i < recipe.Ingredients.size(); i++)
+	{
+		if (recipe.Ingredients[i].type == "Topping")
+		{
+			cout << recipe.Ingredients[i].name << endl;
+		}
+	}
+
+}
+
+void Recipe::listStock(Recipe& recipe)
+{
+	for (int i = 0; i < recipe.Ingredients.size(); i++)
+	{
+		if (recipe.Ingredients[i].type == "Stock")
+		{
+			cout << recipe.Ingredients[i].name << endl;
 		}
 	}
 }

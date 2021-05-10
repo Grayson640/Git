@@ -1,9 +1,11 @@
-﻿  ingredients.cpp
-  main.cpp
-  Recipe.cpp
+﻿  Recipe.cpp
 c:\users\fgtar\git\soupwalkthrough\soupwalkthrough\recipe.cpp(62): warning C4018: '<': signed/unsigned mismatch
 c:\users\fgtar\git\soupwalkthrough\soupwalkthrough\recipe.cpp(75): warning C4018: '>=': signed/unsigned mismatch
 c:\users\fgtar\git\soupwalkthrough\soupwalkthrough\recipe.cpp(135): warning C4018: '<': signed/unsigned mismatch
-c:\users\fgtar\git\soupwalkthrough\soupwalkthrough\recipe.cpp(146): warning C4018: '<': signed/unsigned mismatch
+c:\users\fgtar\git\soupwalkthrough\soupwalkthrough\recipe.cpp(153): warning C4018: '<': signed/unsigned mismatch
+c:\users\fgtar\git\soupwalkthrough\soupwalkthrough\recipe.cpp(275): warning C4018: '<': signed/unsigned mismatch
+c:\users\fgtar\git\soupwalkthrough\soupwalkthrough\recipe.cpp(286): warning C4018: '<': signed/unsigned mismatch
+c:\users\fgtar\git\soupwalkthrough\soupwalkthrough\recipe.cpp(298): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
   Generating Code...
   SoupWalkthrough.vcxproj -> C:\Users\fgtar\git\SoupWalkthrough\Debug\SoupWalkthrough.exe

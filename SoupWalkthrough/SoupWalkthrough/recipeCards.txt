@@ -48,7 +48,7 @@ Recipe Cards
 <exec>Add sliced bok choy to stock and simmer for 2 minutes.
 <exec>Remove broth from heat and stir in sesame oil.
 <exec>Pour broth over drained noodles and add toppings:
-<exec><listToppings>
+<exec><listTopping>
 <exec>Done!
 </Recipe>
 

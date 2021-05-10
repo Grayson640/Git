@@ -50,5 +50,10 @@ public:
 	// Execute
 	void execute(Recipe& recipe);
 
+	// List functions
+	void listVeg(Recipe& recipe);
+	void listTopping(Recipe& recipe);
+	void listStock(Recipe& recipe);
+
 };
 
