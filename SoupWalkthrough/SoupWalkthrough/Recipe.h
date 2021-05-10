@@ -26,9 +26,6 @@ public:
 	// Custom Constructor
 	Recipe(string name, vector<ingredients> ingredients) {}
 
-	// Default recipe
-	Recipe TofuVegSoup();
-
 	// Print functions
 	void printIngredients();
 
