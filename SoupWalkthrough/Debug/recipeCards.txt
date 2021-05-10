@@ -1,0 +1,62 @@
+Recipe Cards
+
+
+<name>Tofu Vegetable Soup
+
+<ing>Tofu,8,oz,Protien
+<ing>Button Mushroom,4,Pieces,Veg
+<ing>Bok Choy,4,Leafy Stems,Veg
+<ing>Garlic,4,Cloves,Veg
+<ing>Bean Sprouts,1,Cup,Topping
+<ing>Red Radish,3,Pieces,Topping
+<ing>Soy Sauce,2,Tablespoon,Stock
+<ing>Chikcen Stock,2,Tablespoon,Stock
+<ing>Rice Vinegar,1,Tablespoon,Stock
+<ing>Chili Paste,2,Teaspoon,Saute
+<ing>Black Pepper,2,Teaspoon,Stock
+<ing>Dry White Wine,1,Half Cup,Saute
+<ing>Sesame Oil,1,Tablespoon,Special
+<ing>Vegetable Oil,1,Tablespoon,Saute
+
+<prep>Prepare two pots of water to boil:
+<prep>4 quarts for Noodles in large pot
+<prep>2 cups for Broth in medium stock pot
+<prep>Turn down to a simmer on both when they begin to boil
+<batch>
+<prep>Thoroughly wash all vegetables.
+<prep>Thinly slice all vegetables and set aside:
+<prep><listVeg>
+<prep>Drain tofu and cube.
+
+<batch>
+<prep>You are now ready to execute the rest of the recipe!
+
+<exec>Add stock ingredients to the 2 cups of water in stock pot and simmer.
+<batch>
+<exec><listStock>
+<exec>Heat 1 tablespoon vegetable oil in medium non-stick pot on medium-high until small water droplets sizzle.
+<exec>Saute sliced garlic and chilipaste until fragrant.
+<exec>Add mushroom and saute until soft.
+<exec>Turn heat down to medium and add dry white wine.
+<exec>Simmer uncovered 5 minutes or until reduced.
+<batch>
+<exec>Add contents from stock pot. Bring to simmer.
+<exec>Add cubed tofu and simmer for 3 minutes.
+<batch>
+<exec>Prepare noodles as directed and set aside.
+<batch>
+<exec>Add sliced bok choy to stock and simmer for 2 minutes.
+<exec>Remove broth from heat and stir in sesame oil.
+<exec>Pour broth over drained noodles and add toppings:
+<exec><listToppings>
+<exec>Done!
+</Recipe>
+
+<name>xx.xx0
+<ing>Vanilla,200,pounds,test
+<prep>Empty your wallet.
+<exec>Eat vanilla.
+</Recipe>
+<name>xx.xx1
+<name>xx.xx2
+<name>xx.xx3
