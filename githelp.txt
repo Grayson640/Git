@@ -1,0 +1,13 @@
+// Basic commands
+git init				// Initialize project to use git
+git add .				// Add all changes to staging area
+git add *filename*			// Add single file to staging area
+git commit -m "Message"			// Saves changes in staging area
+					// Add a message for the logs
+git push origin master			// Push changes to github master
+git push origin new-branch		// Push changes to gethub new branch
+git pull origin master			// Pull changes from github master
+git checkout -b new-branch		// Create new branch
+git status				// Check status of changes
+git log					// See all previous saved changes
+git checkout *commit hash*		// Revert to previous commit
