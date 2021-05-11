@@ -3,6 +3,8 @@
 // Soup Walk Through Program
 
 // TODO: GUI, batch() commands, list() functions: veg, toppings
+//     : Reformat recipeCards.txt to allow for multiple ingredient types
+//     : Combine load functions
 
 // Include
 #include "ingredients.h"
