@@ -39,10 +39,10 @@ public:
 	void loadRecipe(Recipe& recipe);
 
 	// Loads prep instructions from file
-	void loadPrep(Recipe& recipe);
+	//void loadPrep(Recipe& recipe);
 
 	// Loads execute instructions from file
-	void loadExec(Recipe& recipe);
+	//void loadExec(Recipe& recipe);
 
 	// Prep
 	void prep(Recipe& recipe);

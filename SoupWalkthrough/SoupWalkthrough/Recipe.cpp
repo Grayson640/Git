@@ -86,8 +86,8 @@ void Recipe::selectRecipe(Recipe& recipe)
 		{
 			recipe.name = recipeNames[select];
 			recipe.loadRecipe(recipe);
-			recipe.loadPrep(recipe);
-			recipe.loadExec(recipe);
+			//recipe.loadPrep(recipe);
+			//recipe.loadExec(recipe);
 			break;
 		}
 	} while (toupper(selection) != 'Q');
@@ -210,11 +210,25 @@ void Recipe::loadRecipe(Recipe& recipe)
 				recipe.Ingredients.push_back(ingredients(ingName, convIngAmount,
 					ingMeasure, ingType));
 			}
+
+			index = line.find("<prep>");	// Prep tag
+			if (index > -1)
+			{
+				// Add line to vector
+				recipe.Prep.push_back(line.substr(6));
+			}
+
+			index = line.find("<exec>");	// Execute tag
+			if (index > -1)
+			{
+				// Add line to vector
+				recipe.Execute.push_back(line.substr(6));
+			}
 		}
 	}
 }
 
-// Read and save prep steps from file
+/*// Read and save prep steps from file
 void Recipe::loadPrep(Recipe& recipe)
 {
 	fstream inFile;
@@ -268,7 +282,7 @@ void Recipe::loadExec(Recipe& recipe)
 			}
 		}
 	}
-}
+}*/
 
 void Recipe::listVeg(Recipe& recipe)
 {
